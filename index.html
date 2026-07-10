@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Yixin Zheng's academic homepage. Research in Embodied AI, Robot Learning, world action models, vision-language-action models, and dexterous manipulation.">
+  <title>Yixin Zheng | 郑一新</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1f2933;
+      --muted: #52606d;
+      --subtle: #7b8794;
+      --line: #d9e2ec;
+      --accent: #1f6f8b;
+      --accent-strong: #0b4f6c;
+      --paper-bg: #f8fafc;
+      --warm: #9a5b19;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.62;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-strong);
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(980px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      padding: 52px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 190px;
+      gap: 44px;
+      align-items: start;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      color: #111827;
+      font-size: 34px;
+      line-height: 1.12;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .name-cn {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .lead {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 17px;
+    }
+
+    .intro p {
+      margin: 0 0 12px;
+    }
+
+    .profile-photo {
+      width: 190px;
+      aspect-ratio: 1 / 1.18;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-top: 18px;
+      color: var(--subtle);
+      font-size: 15px;
+    }
+
+    main {
+      padding: 30px 0 52px;
+    }
+
+    section {
+      margin-top: 28px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+      color: #111827;
+      font-size: 22px;
+      line-height: 1.25;
+      font-weight: 650;
+      letter-spacing: 0;
+    }
+
+    .research-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .research-list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .research-list li::before {
+      position: absolute;
+      top: 0.72em;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--warm);
+      content: "";
+    }
+
+    .school-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .school-item {
+      display: grid;
+      grid-template-columns: 135px minmax(0, 1fr);
+      gap: 20px;
+      padding: 0 0 12px;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .school-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .date {
+      color: var(--subtle);
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .school-title {
+      color: #111827;
+      font-weight: 650;
+    }
+
+    .school-meta {
+      margin-top: 2px;
+      color: var(--muted);
+    }
+
+    .note {
+      color: var(--muted);
+    }
+
+    .publication {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .publication:first-of-type {
+      padding-top: 2px;
+    }
+
+    .publication:last-child {
+      border-bottom: 0;
+    }
+
+    .pub-thumb {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+      background: var(--paper-bg);
+    }
+
+    .pub-title {
+      margin: 0 0 5px;
+      color: #111827;
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 650;
+    }
+
+    .pub-title a {
+      color: inherit;
+    }
+
+    .pub-meta {
+      margin: 0 0 6px;
+      color: var(--muted);
+    }
+
+    .venue {
+      color: var(--accent-strong);
+      font-weight: 650;
+    }
+
+    .role {
+      color: var(--warm);
+      font-weight: 650;
+    }
+
+    .pub-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      margin-top: 8px;
+      font-size: 15px;
+    }
+
+    footer {
+      padding: 24px 0 36px;
+      border-top: 1px solid var(--line);
+      color: var(--subtle);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 28px, 980px);
+      }
+
+      .site-header {
+        padding-top: 30px;
+      }
+
+      .intro {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .profile-photo {
+        width: 150px;
+        grid-row: 1;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .research-list {
+        grid-template-columns: 1fr;
+      }
+
+      .school-item,
+      .publication {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .date {
+        white-space: normal;
+      }
+
+      .pub-thumb {
+        max-width: 420px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container intro">
+      <div>
+        <h1>Yixin Zheng <span class="name-cn">| 郑一新</span></h1>
+        <p class="lead">
+          Ph.D. student working on Embodied AI and Robot Learning.
+        </p>
+        <p>
+          I am a Ph.D. student in Control Theory and Control Science, jointly trained by the
+          Institute of Automation, Chinese Academy of Sciences and Beijing Academy of Artificial Intelligence.
+          I am affiliated with the EPIC Lab at Peking University.
+        </p>
+        <p>
+          My research focuses on world action models, vision-language-action models, robot foundation models,
+          representation learning, 3D vision, and dexterous manipulation.
+        </p>
+        <p class="note">
+          Advisors and mentors: Dr. Zhizheng Zhang, Prof. He Wang, and Prof. Xiaoguang Zhao.
+        </p>
+        <div class="links">
+          <a href="mailto:zhengyixin2025@ia.ac.cn">Email</a>
+        </div>
+      </div>
+      <img class="profile-photo" src="assets/zyx_resume_photo.png" alt="Yixin Zheng profile photo">
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="research">
+      <h2>Research Interests</h2>
+      <ul class="research-list">
+        <li>Embodied AI and Robot Learning</li>
+        <li>World Action Models (WAM)</li>
+        <li>Vision-Language-Action Models (VLA)</li>
+        <li>Robot Foundation Models</li>
+        <li>Representation Learning and 3D Vision</li>
+        <li>Dexterous and Contact-rich Manipulation</li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul class="school-list">
+        <li class="school-item">
+          <div class="date">2025 - Present</div>
+          <div>
+            <div class="school-title">Institute of Automation, Chinese Academy of Sciences / Beijing Academy of Artificial Intelligence</div>
+            <div class="school-meta">Joint Ph.D. student, Control Theory and Control Science</div>
+            <div class="school-meta">Affiliated lab: EPIC Lab, Peking University</div>
+          </div>
+        </li>
+        <li class="school-item">
+          <div class="date">2021 - 2025</div>
+          <div>
+            <div class="school-title">Sun Yat-sen University</div>
+            <div class="school-meta">B.S. in Computer Science and Technology, School of Computer Science and Engineering</div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <article class="publication">
+        <a href="https://arxiv.org/abs/2603.09882" target="_blank" rel="noopener">
+          <img class="pub-thumb" src="assets/dapl-teaser.pdf.png" alt="DAPL paper teaser">
+        </a>
+        <div>
+          <h3 class="pub-title">
+            <a href="https://arxiv.org/abs/2603.09882" target="_blank" rel="noopener">Emerging Extrinsic Dexterity in Cluttered Scenes via Dynamics-aware Policy Learning</a>
+          </h3>
+          <p class="pub-meta"><span class="venue">Robotics: Science and Systems (RSS), 2026</span></p>
+          <p class="pub-meta"><span class="role">First Author</span></p>
+          <p class="pub-meta">
+            Dynamics-aware policy learning for 3D vision and dexterous manipulation in cluttered scenes.
+          </p>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2603.09882" target="_blank" rel="noopener">arXiv</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="publication">
+        <a href="https://arxiv.org/abs/2512.21970" target="_blank" rel="noopener">
+          <img class="pub-thumb" src="assets/stereoVLA-teaser.jpg" alt="StereoVLA paper teaser">
+        </a>
+        <div>
+          <h3 class="pub-title">
+            <a href="https://arxiv.org/abs/2512.21970" target="_blank" rel="noopener">StereoVLA: Enhancing Vision-Language-Action Models with Stereo Vision</a>
+          </h3>
+          <p class="pub-meta"><span class="venue">Robotics: Science and Systems (RSS), 2026</span></p>
+          <p class="pub-meta"><span class="role">Co-first Author</span></p>
+          <p class="pub-meta">
+            Stereo geometric cues for improving spatial perception and viewpoint generalization in VLA models.
+          </p>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2512.21970" target="_blank" rel="noopener">arXiv</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="publication">
+        <a href="https://pku-epic.github.io/LDA/" target="_blank" rel="noopener">
+          <img class="pub-thumb" src="assets/lda_teaser.jpg" alt="LDA-1B paper teaser">
+        </a>
+        <div>
+          <h3 class="pub-title">
+            <a href="https://pku-epic.github.io/LDA/" target="_blank" rel="noopener">LDA-1B: Scaling Latent Dynamics Action Model via Universal Embodied Data Ingestion</a>
+          </h3>
+          <p class="pub-meta"><span class="venue">Robotics: Science and Systems (RSS), 2026</span></p>
+          <p class="pub-meta"><span class="role">Co-author</span></p>
+          <p class="pub-meta">
+            Scaling robot foundation models with large-scale heterogeneous embodied data.
+          </p>
+          <div class="pub-links">
+            <a href="https://pku-epic.github.io/LDA/" target="_blank" rel="noopener">Project Page</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Last updated: July 2026.
+    </div>
+  </footer>
+</body>
+</html>
