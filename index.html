@@ -191,28 +191,22 @@
 
     .publication {
       display: grid;
-      grid-template-columns: 230px minmax(0, 1fr);
-      gap: 22px;
+      grid-template-columns: 28% minmax(0, 1fr);
+      gap: 24px;
       align-items: start;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
+      padding: 20px 0 30px;
     }
 
     .publication:first-of-type {
-      padding-top: 2px;
-    }
-
-    .publication:last-child {
-      border-bottom: 0;
+      padding-top: 0;
     }
 
     .pub-thumb {
       display: block;
       width: 100%;
       aspect-ratio: 16 / 9;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 4px;
-      border: 1px solid var(--line);
       background: var(--paper-bg);
     }
 
@@ -228,27 +222,69 @@
       color: inherit;
     }
 
-    .pub-meta {
-      margin: 0 0 6px;
+    .authors {
+      margin: 0 0 4px;
       color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .authors b {
+      color: #111827;
+    }
+
+    .pub-meta {
+      margin: 0 0 5px;
+      color: var(--muted);
+      line-height: 1.45;
     }
 
     .venue {
-      color: var(--accent-strong);
-      font-weight: 650;
+      color: #111827;
+      font-style: italic;
     }
 
-    .role {
-      color: var(--warm);
-      font-weight: 650;
+    .venue b {
+      font-style: normal;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 3px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(221, 36, 118, 0.36);
+      font-size: 0.9em;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      vertical-align: middle;
+      white-space: nowrap;
     }
 
     .pub-links {
       display: flex;
       flex-wrap: wrap;
       gap: 6px 12px;
-      margin-top: 8px;
+      margin-top: 4px;
       font-size: 15px;
+    }
+
+    .pub-note {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.48;
+    }
+
+    .legend {
+      margin: -6px 0 12px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     footer {
@@ -297,6 +333,10 @@
 
       .pub-thumb {
         max-width: 420px;
+      }
+
+      .badge {
+        margin: 6px 0 0;
       }
     }
   </style>
@@ -365,6 +405,31 @@
 
     <section id="publications">
       <h2>Publications</h2>
+      <p class="legend">*: joint first author; † project lead; #: corresponding author(s)</p>
+
+      <article class="publication">
+        <a href="https://arxiv.org/abs/2607.06988" target="_blank" rel="noopener">
+          <img class="pub-thumb" src="assets/wamttt.png" alt="WAM-TTT paper teaser">
+        </a>
+        <div>
+          <h3 class="pub-title">
+            <a href="https://arxiv.org/abs/2607.06988" target="_blank" rel="noopener">WAM-TTT: Steering World-Action Models by Watching Human Play at Test Time</a>
+          </h3>
+          <p class="authors">
+            Yusen Feng*, Bingchen Han*, Jiangran Lyu*†, Kai Liu, <b>Yixin Zheng</b>, Yuxuan Wan, Weiheng Liu,
+            Sun Han, Ruiqin Li, Yulong Zhang, Fangfu Liu, Xuesong Shi, Libin Liu#, Yizhou Wang#,
+            Zhizheng Zhang#, He Wang#
+          </p>
+          <p class="pub-meta"><span class="venue">arXiv preprint</span>, 2026</p>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2607.06988" target="_blank" rel="noopener">arXiv</a>
+            <span>/</span>
+            <span>project page</span>
+            <span>/</span>
+            <span>code</span>
+          </div>
+        </div>
+      </article>
 
       <article class="publication">
         <a href="https://arxiv.org/abs/2603.09882" target="_blank" rel="noopener">
@@ -374,14 +439,25 @@
           <h3 class="pub-title">
             <a href="https://arxiv.org/abs/2603.09882" target="_blank" rel="noopener">Emerging Extrinsic Dexterity in Cluttered Scenes via Dynamics-aware Policy Learning</a>
           </h3>
-          <p class="pub-meta"><span class="venue">Robotics: Science and Systems (RSS), 2026</span></p>
-          <p class="pub-meta"><span class="role">First Author</span></p>
+          <p class="authors">
+            <b>Yixin Zheng</b>*, Jiangran Lyu*†, Yifan Zhang, Jiayi Chen, Mi Yan, Yuntian Deng,
+            Xuesong Shi, Xiaoguang Zhao, Yizhou Wang, Zhizheng Zhang#, He Wang#
+          </p>
           <p class="pub-meta">
-            Dynamics-aware policy learning for 3D vision and dexterous manipulation in cluttered scenes.
+            <span class="venue">Robotics: Science and Systems <b>(RSS)</b></span>, 2026
+            <span class="badge">RSS 2026 Outstanding Paper Finalist</span>
           </p>
           <div class="pub-links">
             <a href="https://arxiv.org/abs/2603.09882" target="_blank" rel="noopener">arXiv</a>
+            <span>/</span>
+            <a href="https://pku-epic.github.io/DAPL/" target="_blank" rel="noopener">project page</a>
+            <span>/</span>
+            <span>code</span>
           </div>
+          <p class="pub-note">
+            By leveraging dynamics-aware policy learning, our approach enables robots to exploit environmental
+            contacts and object interactions to accomplish complex manipulation.
+          </p>
         </div>
       </article>
 
@@ -393,14 +469,17 @@
           <h3 class="pub-title">
             <a href="https://arxiv.org/abs/2512.21970" target="_blank" rel="noopener">StereoVLA: Enhancing Vision-Language-Action Models with Stereo Vision</a>
           </h3>
-          <p class="pub-meta"><span class="venue">Robotics: Science and Systems (RSS), 2026</span></p>
-          <p class="pub-meta"><span class="role">Co-first Author</span></p>
-          <p class="pub-meta">
-            Stereo geometric cues for improving spatial perception and viewpoint generalization in VLA models.
+          <p class="authors">
+            Shengliang Deng*, Mi Yan*, <b>Yixin Zheng</b>*, Jiayi Su, Wenhao Zhang, Xiaoguang Zhao,
+            Heming Cui, Zhizheng Zhang#, He Wang#
           </p>
+          <p class="pub-meta"><span class="venue">Robotics: Science and Systems <b>(RSS)</b></span>, 2026</p>
           <div class="pub-links">
             <a href="https://arxiv.org/abs/2512.21970" target="_blank" rel="noopener">arXiv</a>
           </div>
+          <p class="pub-note">
+            Stereo geometric cues for improving spatial perception and viewpoint generalization in VLA models.
+          </p>
         </div>
       </article>
 
@@ -412,14 +491,23 @@
           <h3 class="pub-title">
             <a href="https://pku-epic.github.io/LDA/" target="_blank" rel="noopener">LDA-1B: Scaling Latent Dynamics Action Model via Universal Embodied Data Ingestion</a>
           </h3>
-          <p class="pub-meta"><span class="venue">Robotics: Science and Systems (RSS), 2026</span></p>
-          <p class="pub-meta"><span class="role">Co-author</span></p>
-          <p class="pub-meta">
+          <p class="authors">
+            Jiangran Lyu*, Kai Liu*, Xuheng Zhang*, Haoran Liao, Yusen Feng, Wenxuan Zhu,
+            Tingrui Shen, Jiayi Chen, Jiazhao Zhang, Yifei Dong, Wenbo Cui, Senmao Qi, Shuo Wang,
+            <b>Yixin Zheng</b>, Mi Yan, Xuesong Shi, Haoran Li, Dongbin Zhao, Ming-Yu Liu,
+            Zhizheng Zhang, Li Yi, Yizhou Wang, He Wang
+          </p>
+          <p class="pub-meta"><span class="venue">Robotics: Science and Systems <b>(RSS)</b></span>, 2026</p>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2602.12215" target="_blank" rel="noopener">arXiv</a>
+            <span>/</span>
+            <a href="https://pku-epic.github.io/LDA/" target="_blank" rel="noopener">project page</a>
+            <span>/</span>
+            <a href="https://github.com/jiangranlv/LDA-1B" target="_blank" rel="noopener">code</a>
+          </div>
+          <p class="pub-note">
             Scaling robot foundation models with large-scale heterogeneous embodied data.
           </p>
-          <div class="pub-links">
-            <a href="https://pku-epic.github.io/LDA/" target="_blank" rel="noopener">Project Page</a>
-          </div>
         </div>
       </article>
     </section>
